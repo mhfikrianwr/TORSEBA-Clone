@@ -1,0 +1,3 @@
+# TORSEBA
+
+TORSEBA adalah aplikasi terpadu sebagai media bagi mahasiswa untuk mengadakan tutor sebaya dengan mahasiswa tingkat atasnya atau yang sepantaran. Perangkat lunak ini bertujuan untuk mengatasi berbagai kendala yang dihadapi mahasiswa dalam proses belajar melalui kolaborasi antar mahasiswa, sekaligus menghapus stereotip individu, apatis, serta anti sosial di kalangan mahasiswa FILKOM. Perangkat lunak ini memberikan layanan penjadwalan tutor sebaya yang bisa dikustomisasi pengguna, katalog catatan pembelajaran, latihan soal, video pembelajaran, dan bahan belajar tambahan untuk membantu memperdalam pemahaman materi. Dengan rabat yang memuaskan, berupa poin SKM atau bahkan berupa tips dari pengguna layanan aplikasi yang bersangkutan.

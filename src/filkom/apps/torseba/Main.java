@@ -12,16 +12,11 @@ public class Main
     static GeneratePage generatePage = new GeneratePage();
     static DataStruct getData = new DataStruct();
     static Scanner input = new Scanner(System.in);
-    /*
-     * Email
-     * Password
-     * No telfon
-     * Nama
-     * Role
-     * Umur
-     * Jenis kelamin
-     * Alamat
-     */
+    private static void defaultExit()
+    {
+        System.out.print("\n" + "Aplikasi akan ditutup, terima kasih telah menggunakan aplikasi Filkom Tour & Travel");
+        System.exit(0);
+    }
     public static void main(String[] args)
     {
         getData.userLoginData.put("admin0@ub.ac.id","default-login-pass");
@@ -165,6 +160,10 @@ public class Main
                     getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
                     getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
                     userType = tempUserRole;
+                }
+                else if (menuChoose == 3)
+                {
+                    defaultExit();
                 }
             }
         }

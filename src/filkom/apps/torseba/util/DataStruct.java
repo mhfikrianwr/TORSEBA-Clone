@@ -5,6 +5,11 @@ import java.util.*;
  * <h1>Default Data Values</h1>
  * 
  * @author Syafa Hadyan Rasendriya
+ * @author Dafid Rosydan Hanif
+ * @author Davy Sheehan Arisatyo
+ * @author Muhammad Fikri Anwar
+ * @author Muhammad Raditya Arsyad
+ * @author Valentinus Marvel
  */
 public class DataStruct
 {

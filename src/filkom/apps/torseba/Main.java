@@ -12,15 +12,15 @@ public class Main
     static GeneratePage generatePage = new GeneratePage();
     static DataStruct getData = new DataStruct();
     static Scanner input = new Scanner(System.in);
-    private static void defaultExit()
+    private static void exitApp()
     {
-        System.out.print("\n" + "Aplikasi akan ditutup, terima kasih telah menggunakan aplikasi Filkom Tour & Travel");
+        System.out.println("\n" + "Aplikasi akan ditutup, terima kasih telah menggunakan aplikasi Filkom Tour & Travel");
         System.exit(0);
     }
     public static void main(String[] args)
     {
         getData.userLoginData.put("admin0@ub.ac.id","default-login-pass");
-        getData.userData.put(Arrays.asList("admin0@ub.ac.id","admin"),Arrays.asList("admin0@ub.ac.id","default-login-pass","admin","Admin UB","Malang","0123456789","Laki-laki","Malang, 0 Januari 0000"));
+        getData.userData.put(Arrays.asList("admin0@ub.ac.id","default-login-pass"),Arrays.asList("admin0@ub.ac.id","default-login-pass","admin","Admin UB","Malang","0123456789","Laki-laki","Malang, 0 Januari 0000"));
         String userLogin = "";
         String userPassword = "";
         String userType = "";
@@ -85,6 +85,7 @@ public class Main
                         }
                     }
                     while (!validUserLogin);
+                    userType = getData.userData.get(Arrays.asList(userLogin,userPassword)).get(2);
                 }
                 else if (menuChoose == 2)
                 {
@@ -125,7 +126,7 @@ public class Main
                     getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
                     userLogin = tempUserEmailRegister;
                     boolean confirmUserDataInput = false;
-                    while (!confirmUserDataInput)
+                    while (!confirmUserDataInput && !(userType.equals("user")))
                     {
                         generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
                         generatePage.body("Empty",2);
@@ -152,6 +153,12 @@ public class Main
                         generatePage.body("Empty",2);
                         generatePage.headerFooter();
 
+                        /* Check if role is not user, then prompt user to re-enter data */
+                        if (!(tempUserRole.equals("user")))
+                        {
+                            System.out.println("\n" + "Role yang anda masukkan salah, silahkan masukkan data kembali");
+                            continue;
+                        }
                         /* Will default to true (data confirmed as valid by user) and should proceed to next step */
                         confirmUserDataInput = !temp.equalsIgnoreCase("1");
                     }
@@ -161,10 +168,22 @@ public class Main
                     getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
                     userType = tempUserRole;
                 }
-                else if (menuChoose == 3)
+                if (userType.equals("admin"))
                 {
-                    defaultExit();
+                    System.err.println("ADMIN LOG");
+                    System.err.println(userLogin);
+                    System.err.println(userType);
                 }
+                else if (userType.equals("user"))
+                {
+                    System.err.println("USER LOG");
+                    System.err.println(userType);
+                    System.err.println(userLogin);
+                }
+            }
+            else if (menuChoose == 3)
+            {
+                exitApp();
             }
         }
     }

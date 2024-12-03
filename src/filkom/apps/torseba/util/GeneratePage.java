@@ -13,13 +13,13 @@ public class GeneratePage
     public void defaultWelcomeHeader(String content)
     {
         /* Calculate to print at middle */
-        int spaceBefore = (getData.getValueBoxWidth() - content.length()) / 2;
-        int headerSpaceBefore = (getData.getValueBoxWidth() - getData.getDefaultHeader().length()) / 2;
+        int spaceBefore = (getData.BOX_WIDTH - content.length()) / 2;
+        int headerSpaceBefore = (getData.BOX_WIDTH - getData.DEFAULT_HEADER.length()) / 2;
 
         /* Default welcome header to avoid redundancy */
         headerFooter();
         body("Empty",1);
-        bodyWithContent(headerSpaceBefore,getData.getDefaultHeader(),false);
+        bodyWithContent(headerSpaceBefore,getData.DEFAULT_HEADER,false);
 
         /* Display as requested */
         bodyWithContent(spaceBefore,content,false);
@@ -35,7 +35,7 @@ public class GeneratePage
     {
         /* Print header and footer */
         System.out.print('+');
-        for (int i = 0; i < getData.getValueBoxWidth(); i++)
+        for (int i = 0; i < getData.BOX_WIDTH; i++)
         {
             System.out.print('-');
         }
@@ -50,7 +50,7 @@ public class GeneratePage
         for (int i = 0; i < height; i++)
         {
             System.out.print('|');
-            for (int j = 0; j < getData.getValueBoxWidth(); j++)
+            for (int j = 0; j < getData.BOX_WIDTH; j++)
             {
                 System.out.print(space);
             }
@@ -62,7 +62,7 @@ public class GeneratePage
         /* Prints box with content (must be a String) and must explicitly state input with boolean values */
         System.out.print('|');
         String inputValue = "";
-        int spaceAfter = getData.getValueBoxWidth() - spaceBefore - content.length(); /* Calculate width after content */
+        int spaceAfter = getData.BOX_WIDTH - spaceBefore - content.length(); /* Calculate width after content */
 
         /* Add spacing before content is printed */
         for (int i = 0; i < spaceBefore; i++)

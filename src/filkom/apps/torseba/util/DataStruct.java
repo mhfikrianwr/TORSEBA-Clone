@@ -7,6 +7,9 @@ package filkom.apps.torseba.util;
  */
 public class DataStruct
 {
+    final String DEFAULT_HEADER = "Selamat Datang"; /* Default header */
+    final String DEFAULT_SUB_HEADER = "Filkom Tour & Travel"; /* Default sub header */
+    final String DEFAULT_CURRENCY = "Rp"; /* Default currency */
     final int BOX_WIDTH = 200; /* Width of the box */
     final int MAX_DATA_AMOUNT = 100; /* Max data amount */
     int currentRegisteredUser = 0; /* Amount of registered users */
@@ -14,9 +17,6 @@ public class DataStruct
     double income = 0; /* Default income to 0, will update when app user books a trip */
     boolean exitWeb = false; /* Exit app when true */
     String[][] validUser = new String[MAX_DATA_AMOUNT][]; /* Registered users (All roles) */
-    final String DEFAULT_HEADER = "Selamat Datang"; /* Default header */
-    final String DEFAULT_SUB_HEADER = "Filkom Tour & Travel"; /* Default sub header */
-    final String DEFAULT_CURRENCY = "Rp"; /* Default currency */
     String[] tableHeaderData = /* Table header for displaying user / driver data */
     {
         "Email",

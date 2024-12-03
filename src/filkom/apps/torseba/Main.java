@@ -14,7 +14,7 @@ public class Main
     static Scanner input = new Scanner(System.in);
     private static void exitApp()
     {
-        System.out.println("\n" + "Aplikasi akan ditutup, terima kasih telah menggunakan aplikasi Filkom Tour & Travel");
+        System.out.println("\n" + "Aplikasi akan ditutup, terima kasih telah menggunakan aplikasi TORSEBA");
         System.exit(0);
     }
     public static void main(String[] args)

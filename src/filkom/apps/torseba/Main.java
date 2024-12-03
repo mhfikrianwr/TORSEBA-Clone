@@ -72,130 +72,35 @@ public class Main
                 {
                     for (String j : getData.userData.get(i))
                     {
-                        System.out.println(j);
+                        System.err.println(j);
                     }
                 }
-            //     if (menuChoose == 1)
-            //     {
-            //         do
-            //         {
-            //             if (!validUserLogin)
-            //             {
-            //                 /* Prompt user to re-enter login credentials */
-            //                 System.out.println("\n" + "Data yang anda masukkan salah, silahkan input kembali");
-            //             }
+                if (menuChoose == 1)
+                {
+                    do
+                    {
+                        if (!validUserLogin)
+                        {
+                            /* Prompt user to re-enter login credentials */
+                            System.out.println("\n" + "Data yang anda masukkan salah, silahkan input kembali");
+                        }
 
-            //             /* Login page */
-            //             generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-            //             generatePage.body("Empty",4);
-            //             userLogin = generatePage.bodyWithContent(2,"Masukkan email",true);
-            //             userPassword = generatePage.bodyWithContent(2,"Masukkan password",true);
-            //             generatePage.body("Empty",4);
-            //             generatePage.headerFooter();
-            //             int counter = 0;
-            //             validUserLogin = false;
-            //             while (getData.validUser[counter] != null)
-            //             {
-            //                 if (getData.validUser[counter][0].equals(userLogin) && getData.validUser[counter][1].equals(userPassword))
-            //                 {
-            //                     userType = getData.validUser[counter][2];
-            //                     validUserLogin = true;
-            //                     break;
-            //                 }
-            //                 counter++;
-            //             }
-            //         }
-            //         while (!validUserLogin);
-            //     }
-            //     else if (menuChoose == 2)
-            //     {
-            //         /* Register page */
-            //         boolean alreadyRegistered = true;
-            //         String tempUserEmailRegister = "";
-            //         String tempUserPasswordRegister = "";
-            //         String tempUserFullName = "";
-            //         String tempUserAddress = "";
-            //         String tempUserPhoneNumber = "";
-            //         String tempUserGender = "";
-            //         String tempPlaceDateOfBirth = "";
-            //         int counter = 0;
-            //         while (alreadyRegistered)
-            //         {
-            //             /* Update value to false (will be true when no duplicate found in registered user list) */
-            //             alreadyRegistered = false;
-
-            //             /* Prints default header */
-            //             generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-            //             generatePage.body("Empty",6);
-            //             tempUserEmailRegister = generatePage.bodyWithContent(2,"Masukkan email",true);
-            //             tempUserPasswordRegister = generatePage.bodyWithContent(2,"Masukkan password",true);
-            //             generatePage.body("Empty",4);
-            //             generatePage.headerFooter();
-
-            //             /*
-            //              * Check if entered email already registered
-            //              * Loop through each element in array
-            //              * Prompt user to re-enter both email and password when duplicate found
-            //              */
-            //             while (getData.validUser[counter] != null)
-            //             {
-            //                 /* User email is case sensitive */
-            //                 if (getData.validUser[counter][0].equals(tempUserEmailRegister))
-            //                 {
-            //                     /* If match found, loop back */
-            //                     System.out.println("Email sudah digunakan, silahkan gunakan email lain");
-            //                     alreadyRegistered = true;
-            //                     break;
-            //                 }
-            //                 counter++;
-            //             }
-            //         }
-
-            //         /* Store values to registered users */
-            //         getData.validUser[getData.currentRegisteredUser] = (tempUserEmailRegister + " " + tempUserPasswordRegister + " " + "User").split("\s");
-            //         userLogin = tempUserEmailRegister;
-            //         boolean confirmUserDataInput = false;
-            //         while (!confirmUserDataInput)
-            //         {
-            //             generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-            //             generatePage.body("Empty",2);
-            //             generatePage.bodyWithContent(2,"Masukkan data anda",false);
-            //             tempUserFullName = generatePage.bodyWithContent(2,"Nama lengkap",true);
-            //             tempUserAddress = generatePage.bodyWithContent(2,"Alamat lengkap",true);
-            //             tempUserPhoneNumber = generatePage.bodyWithContent(2,"Nomor telepon",true);
-            //             tempUserGender = generatePage.bodyWithContent(2,"Masukkan jenis kelamin",true);
-            //             tempPlaceDateOfBirth = generatePage.bodyWithContent(2,"Masukkan tempat tanggal lahir",true);
-            //             generatePage.body("Empty",3);
-            //             generatePage.headerFooter();
-            //             generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-            //             generatePage.body("Empty",2);
-            //             generatePage.bodyWithContent(2,"Konfirmasi data",false);
-            //             generatePage.bodyWithContent(2,"Nama : " + tempUserFullName,false);
-            //             generatePage.bodyWithContent(2,"Alamat : "  + tempUserAddress,false);
-            //             generatePage.bodyWithContent(2,"Nomor telepon : " + tempUserPhoneNumber,false);
-            //             generatePage.bodyWithContent(2,"Jenis kelamin : " + tempUserGender,false);
-            //             generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
-            //             generatePage.body("Empty",2);
-            //             String temp = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
-            //             generatePage.body("Empty",2);
-            //             generatePage.headerFooter();
-
-            //             /* Will default to true (data confirmed as valid by user) and should proceed to next step */
-            //             confirmUserDataInput = !temp.equalsIgnoreCase("1");
-            //         }
-
-            //         /* When valid, insert to getData.userData */
-            //         userData[getData.currentRegisteredUser].setEmail(tempUserEmailRegister);
-            //         userData[getData.currentRegisteredUser].setPassword(tempUserPasswordRegister);
-            //         userData[getData.currentRegisteredUser].setFullName(tempUserFullName);
-            //         userData[getData.currentRegisteredUser].setAddress(tempUserAddress);
-            //         userData[getData.currentRegisteredUser].setTelephoneNumber(tempUserPhoneNumber);
-            //         userData[getData.currentRegisteredUser].setGender(tempUserGender);
-            //         userData[getData.currentRegisteredUser].setPlaceDateBirth(tempPlaceDateOfBirth);
-            //         getData.currentRegisteredUser++; /* Increment amount of registered users */
-            //         userType = "User"; /* Update userType (current) as user to redirect user to booking / rent page */
-            //     }
-            // }
+                        /* Login page */
+                        validUserLogin = false;
+                        generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                        generatePage.body("Empty",4);
+                        userLogin = generatePage.bodyWithContent(2,"Masukkan email",true);
+                        userPassword = generatePage.bodyWithContent(2,"Masukkan password",true);
+                        generatePage.body("Empty",4);
+                        generatePage.headerFooter();
+                        if (getData.userLoginData.containsKey(userLogin) && getData.userLoginData.get(userLogin).equals(userPassword))
+                        {
+                            validUserLogin = true;
+                            System.err.println("LOG SUCCESSFUL");
+                        }
+                    }
+                    while (!validUserLogin);
+                }
             }
         }
     }

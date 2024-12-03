@@ -14,7 +14,7 @@ public class DataStruct
     public final String DEFAULT_SUB_HEADER = "Filkom Tour & Travel"; /* Default sub header */
     public final String DEFAULT_CURRENCY = "Rp"; /* Default currency */
     public HashMap<String,String> userLoginData = new HashMap<>(); /* Email and password  */
-    public HashMap<String,List<String>> userData = new HashMap<>(); /* All user data */
+    public HashMap<List<String>,List<String>> userData = new HashMap<>(); /* All user data */
     public String[] tableHeaderData = /* Table header for displaying user / driver data */
     {
         "Email",

@@ -24,16 +24,6 @@ public class Main
      */
     public static void main(String[] args)
     {
-        /*
-         * "Email",
-         * "Password",
-         * "Role",
-         * "Nama",
-         * "Alamat",
-         * "Telepon",
-         * "Jenis Kelamin",
-         * "Tempat, tanggal lahir"
-         */
         getData.userLoginData.put("admin0@ub.ac.id","default-login-pass");
         getData.userData.put(Arrays.asList("admin0@ub.ac.id","admin"),Arrays.asList("admin0@ub.ac.id","default-login-pass","admin","Admin UB","Malang","0123456789","Laki-laki","Malang, 0 Januari 0000"));
         String userLogin = "";
@@ -142,18 +132,10 @@ public class Main
                     boolean confirmUserDataInput = false;
                     while (!confirmUserDataInput)
                     {
-                        /*
-                         * "Role",
-                         * "Nama",
-                         * "Alamat",
-                         * "Telepon",
-                         * "Jenis Kelamin",
-                         * "Tempat, tanggal lahir"
-                         */
                         generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
                         generatePage.body("Empty",2);
                         generatePage.bodyWithContent(2,"Masukkan data anda",false);
-                        tempUserRole = generatePage.bodyWithContent(2,"Role",true);
+                        tempUserRole = generatePage.bodyWithContent(2,"Role",true).toLowerCase();
                         tempUserFullName = generatePage.bodyWithContent(2,"Nama lengkap",true);
                         tempUserAddress = generatePage.bodyWithContent(2,"Alamat lengkap",true);
                         tempUserPhoneNumber = generatePage.bodyWithContent(2,"Nomor telepon",true);
@@ -182,16 +164,7 @@ public class Main
                     /* When valid, insert to getData.userData */
                     getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
                     getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
-                    // getData.userData
-                    // userData[getData.currentRegisteredUser].setEmail(tempUserEmailRegister);
-                    // userData[getData.currentRegisteredUser].setPassword(tempUserPasswordRegister);
-                    // userData[getData.currentRegisteredUser].setFullName(tempUserFullName);
-                    // userData[getData.currentRegisteredUser].setAddress(tempUserAddress);
-                    // userData[getData.currentRegisteredUser].setTelephoneNumber(tempUserPhoneNumber);
-                    // userData[getData.currentRegisteredUser].setGender(tempUserGender);
-                    // userData[getData.currentRegisteredUser].setPlaceDateBirth(tempPlaceDateOfBirth);
-                    // getData.currentRegisteredUser++; /* Increment amount of registered users */
-                    // userType = "User"; /* Update userType (current) as user to redirect user to booking / rent page */
+                    userType = tempUserRole;
                 }
             }
         }

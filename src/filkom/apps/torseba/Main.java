@@ -25,7 +25,7 @@ public class Main
     public static void main(String[] args)
     {
         /*
-         * "Email", key
+         * "Email",
          * "Password",
          * "Role",
          * "Nama",
@@ -35,7 +35,7 @@ public class Main
          * "Tempat, tanggal lahir"
          */
         getData.userLoginData.put("admin0@ub.ac.id","default-login-pass");
-        getData.userData.put("admin0@ub.ac.id",Arrays.asList("admin0@ub.ac.id","default-login-pass","0123456789","Admin UB","Admin","30","Laki-laki","Malang"));
+        getData.userData.put(Arrays.asList("admin0@ub.ac.id","admin"),Arrays.asList("admin0@ub.ac.id","default-login-pass","admin","Admin UB","Malang","0123456789","Laki-laki","Malang, 0 Januari 0000"));
         String userLogin = "";
         String userPassword = "";
         String userType = "";
@@ -68,7 +68,7 @@ public class Main
             {
                 /* Break out of loop then print main menu log in / register */
                 boolean validUserLogin = true;
-                for (String i : getData.userData.keySet())
+                for (List<String> i : getData.userData.keySet())
                 {
                     for (String j : getData.userData.get(i))
                     {
@@ -107,12 +107,12 @@ public class Main
                     boolean isRegistered = true;
                     String tempUserEmailRegister = "";
                     String tempUserPasswordRegister = "";
+                    String tempUserRole = "";
                     String tempUserFullName = "";
                     String tempUserAddress = "";
                     String tempUserPhoneNumber = "";
                     String tempUserGender = "";
                     String tempPlaceDateOfBirth = "";
-                    int counter = 0;
                     do
                     {
                         /* Prompt user to enter another email if already registered */
@@ -136,41 +136,53 @@ public class Main
                         isRegistered = !(getData.userLoginData.containsKey(tempUserEmailRegister));
                     }
                     while (!(isRegistered));
+                    /* Put data to valid user and password key value */
+                    getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
+                    userLogin = tempUserEmailRegister;
+                    boolean confirmUserDataInput = false;
+                    while (!confirmUserDataInput)
+                    {
+                        /*
+                         * "Role",
+                         * "Nama",
+                         * "Alamat",
+                         * "Telepon",
+                         * "Jenis Kelamin",
+                         * "Tempat, tanggal lahir"
+                         */
+                        generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                        generatePage.body("Empty",2);
+                        generatePage.bodyWithContent(2,"Masukkan data anda",false);
+                        tempUserRole = generatePage.bodyWithContent(2,"Role",true);
+                        tempUserFullName = generatePage.bodyWithContent(2,"Nama lengkap",true);
+                        tempUserAddress = generatePage.bodyWithContent(2,"Alamat lengkap",true);
+                        tempUserPhoneNumber = generatePage.bodyWithContent(2,"Nomor telepon",true);
+                        tempUserGender = generatePage.bodyWithContent(2,"Masukkan jenis kelamin",true);
+                        tempPlaceDateOfBirth = generatePage.bodyWithContent(2,"Masukkan tempat tanggal lahir",true);
+                        generatePage.body("Empty",3);
+                        generatePage.headerFooter();
+                        generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
+                        generatePage.body("Empty",2);
+                        generatePage.bodyWithContent(2,"Konfirmasi data",false);
+                        generatePage.bodyWithContent(2,"Role : " + tempUserRole,false);
+                        generatePage.bodyWithContent(2,"Nama : " + tempUserFullName,false);
+                        generatePage.bodyWithContent(2,"Alamat : "  + tempUserAddress,false);
+                        generatePage.bodyWithContent(2,"Nomor telepon : " + tempUserPhoneNumber,false);
+                        generatePage.bodyWithContent(2,"Jenis kelamin : " + tempUserGender,false);
+                        generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
+                        generatePage.body("Empty",2);
+                        String temp = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
+                        generatePage.body("Empty",2);
+                        generatePage.headerFooter();
 
-                    /* Store values to registered users */
-                    // getData.validUser[getData.currentRegisteredUser] = (tempUserEmailRegister + " " + tempUserPasswordRegister + " " + "User").split("\s");
-                    // userLogin = tempUserEmailRegister;
-                    // boolean confirmUserDataInput = false;
-                    // while (!confirmUserDataInput)
-                    // {
-                    //     generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-                    //     generatePage.body("Empty",2);
-                    //     generatePage.bodyWithContent(2,"Masukkan data anda",false);
-                    //     tempUserFullName = generatePage.bodyWithContent(2,"Nama lengkap",true);
-                    //     tempUserAddress = generatePage.bodyWithContent(2,"Alamat lengkap",true);
-                    //     tempUserPhoneNumber = generatePage.bodyWithContent(2,"Nomor telepon",true);
-                    //     tempUserGender = generatePage.bodyWithContent(2,"Masukkan jenis kelamin",true);
-                    //     tempPlaceDateOfBirth = generatePage.bodyWithContent(2,"Masukkan tempat tanggal lahir",true);
-                    //     generatePage.body("Empty",3);
-                    //     generatePage.headerFooter();
-                    //     generatePage.defaultWelcomeHeader(getData.DEFAULT_SUB_HEADER);
-                    //     generatePage.body("Empty",2);
-                    //     generatePage.bodyWithContent(2,"Konfirmasi data",false);
-                    //     generatePage.bodyWithContent(2,"Nama : " + tempUserFullName,false);
-                    //     generatePage.bodyWithContent(2,"Alamat : "  + tempUserAddress,false);
-                    //     generatePage.bodyWithContent(2,"Nomor telepon : " + tempUserPhoneNumber,false);
-                    //     generatePage.bodyWithContent(2,"Jenis kelamin : " + tempUserGender,false);
-                    //     generatePage.bodyWithContent(2,"Tempat, tanggal lahir : " + tempPlaceDateOfBirth,false);
-                    //     generatePage.body("Empty",2);
-                    //     String temp = generatePage.bodyWithContent(2,"Konfirmasi data? (Enter / 1 (ubah data))",true);
-                    //     generatePage.body("Empty",2);
-                    //     generatePage.headerFooter();
+                        /* Will default to true (data confirmed as valid by user) and should proceed to next step */
+                        confirmUserDataInput = !temp.equalsIgnoreCase("1");
+                    }
 
-                    //     /* Will default to true (data confirmed as valid by user) and should proceed to next step */
-                    //     confirmUserDataInput = !temp.equalsIgnoreCase("1");
-                    // }
-
-                    // /* When valid, insert to getData.userData */
+                    /* When valid, insert to getData.userData */
+                    getData.userLoginData.put(tempUserEmailRegister,tempUserPasswordRegister);
+                    getData.userData.put(Arrays.asList(tempUserEmailRegister,tempUserRole),Arrays.asList(tempUserEmailRegister,tempUserPasswordRegister,tempUserRole,tempUserFullName,tempUserAddress,tempUserPhoneNumber,tempUserGender,tempPlaceDateOfBirth));
+                    // getData.userData
                     // userData[getData.currentRegisteredUser].setEmail(tempUserEmailRegister);
                     // userData[getData.currentRegisteredUser].setPassword(tempUserPasswordRegister);
                     // userData[getData.currentRegisteredUser].setFullName(tempUserFullName);

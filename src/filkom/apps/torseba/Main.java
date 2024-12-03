@@ -133,7 +133,7 @@ public class Main
                         generatePage.headerFooter();
 
                         /* Check if entered email already registered */ 
-                        isRegistered = getData.userLoginData.containsKey(tempUserEmailRegister);
+                        isRegistered = !(getData.userLoginData.containsKey(tempUserEmailRegister));
                     }
                     while (!(isRegistered));
 

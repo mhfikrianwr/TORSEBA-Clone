@@ -36,7 +36,14 @@ public class Main
             generatePage.bodyWithContent(2,"2. Register",false);
             generatePage.body("Empty",1);
             generatePage.bodyWithContent(2,"3. Keluar",false);
-            menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+            try
+            {
+                menuChoose = Integer.parseInt(generatePage.bodyWithContent(2,"Pilihan anda",true));
+            }
+            catch (NumberFormatException e)
+            {
+                //
+            }
             generatePage.body("Empty",1);
             generatePage.headerFooter();
         }
